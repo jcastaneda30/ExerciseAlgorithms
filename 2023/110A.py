@@ -8,4 +8,3 @@ if countY==4 or countY==7:
     print("YES")
 else:
     print("NO")
-print(countY)
