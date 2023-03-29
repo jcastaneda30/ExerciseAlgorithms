@@ -3,6 +3,8 @@ X=input().split()
 Y=input().split()
 X=[int(x) for x in X]
 Y=[int(x) for x in Y]
+X=X[1::]
+Y=Y[1::]
 turno="X"
 posible=True
 for i in range(1,n+1):

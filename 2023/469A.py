@@ -3,19 +3,17 @@ X=input().split()
 Y=input().split()
 X=[int(x) for x in X]
 Y=[int(x) for x in Y]
-Z=X+Y
-H=list(set(Z))
-comprobante=True
-for i in range(len(H)-1):
-    if i!=len(H)-2:
-        if H[i]!=H[i+1]-1:
-            print("Oh, my keyboard!")
-            comprobante=False
-            break
-    else:
-        if H[-1]!=n:
-            print("Oh, my keyboard!")
-            comprobante=False
-            break
-if comprobante==True:
+W=X[1::]
+K=Y[1::]
+Z=W+K
+Z.sort()
+comprobante=1
+for i in range(len(Z)-1):
+        if Z[i]!=Z[i+1]:
+            comprobante+=1
+if X[0]==0 and Y[0]==0:
+     comprobante=0
+if comprobante==n:
     print("I become the guy.")
+else:
+     print("Oh, my keyboard!")
