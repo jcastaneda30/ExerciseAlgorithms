@@ -1,18 +1,4 @@
-import math
-#Tenemos una lista ordenada
-lista=[0,1,2,3,4,5,6,7,8,9,10]
-#La primera y ultima posicion del la lista
-low=0
-high=len(lista)-1
-#Comprobar un elemento
-item=0
-#El que esta en la posicion de la mitad se redondea hacia arriba
-elementosmedio=math.ceil((low+high)/2)
-supuesto=lista[elementosmedio]
-#Hacer la verificacion
-if item>supuesto:
-    #pasaria a ser el medio +1 ya que esos elemenentos son mas bajos que el que buscamos
-    low=elementosmedio+1 
+
 #Codigo completo
 import math
 #la lista debe estar ordenada
