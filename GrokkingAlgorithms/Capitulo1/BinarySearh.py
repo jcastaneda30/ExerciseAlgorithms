@@ -23,4 +23,3 @@ def binary_search(list, item):
             low = mid + 1
     return None
 
-print(binary_search(lista,3))
