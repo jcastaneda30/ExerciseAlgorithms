@@ -8,3 +8,4 @@ def quicksort(array):
         greater = [i for i in array[1:] if i > pivot]   #  Sub-array of all the elements
     #greater than the pivot
     return quicksort(less) + [pivot] + quicksort(greater)
+
