@@ -42,6 +42,9 @@
         "xmemory": "cpp",
         "xstddef": "cpp",
         "xstring": "cpp",
-        "xtr1common": "cpp"
+        "xtr1common": "cpp",
+        "vector": "cpp",
+        "algorithm": "cpp",
+        "sstream": "cpp"
     }
 }
