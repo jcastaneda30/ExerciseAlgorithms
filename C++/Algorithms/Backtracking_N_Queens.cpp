@@ -1,57 +1,93 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
-vector<vector<int>> result; //Un vector de vectores 
-//donde guardaremos el resultado
 
-//Esta funcion tiene como fin determinar si es seguro
-//Poner la reina en un lugar o no
-bool issafe(vector<vector<int>> board,int row,int column){
-    int i,j;
-    int n=board.size();
-    for(i=0;i<column;i++){
-        if(board[row][i]){//Esta comprobacion es para determinar
-        //si hay alguna otra reina en la fila
-            return false;
-        }
-    }
-    for(i=row,j=column;j>=0 && i>=0;i--,j--){//Con esta vamos a determinar la diagonal izquierda superior
-        if(board[i][j]){
-            return false;
-        }
-    }
-    for(i=row,j=column;j>=0 && i<n;i++,j--){//Con esta vamos a determinar la diagonal izquierda superior
-        if(board[i][j]){
-            return false;
-        }
-    }
-    return true;
+// Store all the possible answers
+vector<vector<string> > answer;
+
+// Print the board
+void print_board()
+{
+	for (auto& str : answer[1]) {
+		for (auto& letter : str)
+			cout << letter << " ";
+		cout << endl;
+	}
+	return;
 }
-bool solution(vector<vector<int>> &board,int column){
-    int n=board.size();
-    if(column==n){
-        vector<int> v;
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                if(board[i][j]==1){
-                    v.push_back(j+1);
-                }
-            }
-        }
-        result.push_back(v);
-        return true;
-    }
-    bool res=false;
-    for(int i=0;i<n;i++){
-        if(issafe(board,i,column)){
-            board[i][column]=1;
-            res=solution(board,column+1)||res;
-            board[i][column]=0;
-
-        }
-    }
+// We need to check in three directions
+// 1. in the same column above the current position
+// 2. in the left top diagonal from the given cell
+// 3. in the right top diagonal from the given cell
+int safe(int row, int col, vector<string>& board)
+{
+	for (int i = 0; i < board.size(); i++) {
+		if (board[i][col] == 'Q')
+			return false;
+	}
+	int i = row, j = col;
+	while (i >= 0 && j >= 0)
+		if (board[i--][j--] == 'Q')
+			return false;
+	i = row, j = col;
+	while (i >= 0 && j < board.size())
+		if (board[i--][j++] == 'Q')
+			return false;
+	return true;
 }
-int main(){
+// rec function here will fill the queens
+// 1. there can be only one queen in one row
+// 2. if we filled the final row in the board then row will
+// be equal to total number of rows in board
+// 3. push that board configuration in answer set because
+// there will be more than one answers for filling the board
+// with n-queens
+void rec(vector<string> board, int row)
+{
+	if (row == board.size()) {
+		answer.push_back(board);
+		return;
+	}
+	for (int i = 0; i < board.size(); i++) {
+		
+		// For each position check if it is safe and if it
+		// safe make a recursive call with
+		// row+1,board[i][j]='Q' and then revert the change
+		// in board that is make the board[i][j]='.' again to
+		// generate more solutions
+		if (safe(row, i, board)) {
+			board[row][i] = 'Q';
+			rec(board, row + 1);
+			board[row][i] = '.';
+		}
+	}
+	return;
+}
+// Function to solve n queens
+vector<vector<string> > solveNQueens(int n)
+{
+	string s;
+	for (int i = 0; i < n; i++)
+		s += '.';
+	
+	// Vector of string will make our board which is
+	// initially all empty
+	vector<string> board(n, s);
+	rec(board, 0);
+	return answer;
+}
 
-    return 0;
+// Driver code
+int main()
+{
+	clock_t start, end;
+	start = clock();
+	// size 4x4 is taken and we can pass some other
+	// dimension for chess board as well
+	cout << solveNQueens(8).size() << endl;
+	cout << "Out of " << answer.size()
+		<< " solutions one is following" << endl;
+	print_board();
+	
+	return 0;
 }
