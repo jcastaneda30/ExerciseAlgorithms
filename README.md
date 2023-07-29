@@ -1,2 +1,2 @@
 # ExerciseCodeforce
-Any exercise that I do from Codeforce
+Any exercise that I do from Codeforce and another platforms
