@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 int solve(int x, vector<int>& coins, int level = 0) {
     if (x < 0) return 1000000000;
     if (x == 0) return 0;

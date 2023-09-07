@@ -64,7 +64,12 @@
         "xloctime": "cpp",
         "xtree": "cpp",
         "array": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "list": "cpp",
+        "set": "cpp",
+        "unordered_set": "cpp",
+        "xhash": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
