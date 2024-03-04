@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.py": "python",
         "iostream": "cpp",
         "initializer_list": "cpp",
         "xutility": "cpp",
@@ -69,7 +70,8 @@
         "list": "cpp",
         "set": "cpp",
         "unordered_set": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "numeric": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
