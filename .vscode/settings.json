@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.py": "python",
+        "*.css": "tailwindcss",
         "iostream": "cpp",
         "initializer_list": "cpp",
         "xutility": "cpp",
@@ -71,7 +72,8 @@
         "set": "cpp",
         "unordered_set": "cpp",
         "xhash": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "stack": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
