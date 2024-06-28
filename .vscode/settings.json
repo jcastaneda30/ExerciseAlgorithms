@@ -69,7 +69,8 @@
         "list": "cpp",
         "set": "cpp",
         "unordered_set": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "ranges": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
