@@ -174,7 +174,8 @@ venv.bak/
 
 # mkdocs documentation
 /site
-
+.cph
+temp*
 # mypy
 .mypy_cache/
 .dmypy.json
@@ -226,3 +227,4 @@ pyrightconfig.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,c++,visualstudiocode
+.Rproj.user
