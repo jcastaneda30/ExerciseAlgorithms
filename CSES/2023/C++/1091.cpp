@@ -13,26 +13,26 @@ int main()
     cin.tie(0);
     int n, m;
     cin >> n >> m;
-    set<pair<int, int>> precios;
+    multiset<int> precios;
     for (int i = 0; i < n; i++)
     {
         int a;
         cin >> a;
-        precios.insert(make_pair(-a, i));
+        precios.insert(-a);
     }
     for (int i = 0; i < m; i++)
     {
         int actually;
         cin >> actually;
-        auto it = precios.lower_bound(make_pair(-actually, -1));
+        auto it = precios.lower_bound(-actually);
         if (it == precios.end())
         {
             cout << -1 << endl;
         }
         else
         {
-            cout << -(*(it)).first << endl;
-            precios.erase(it);
+            cout << -(*(it)) << endl;
+            precios.erase(precios.find(*it));
         }
     }
     return 0;
